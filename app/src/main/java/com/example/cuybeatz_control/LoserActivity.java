@@ -2,6 +2,7 @@ package com.example.cuybeatz_control;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,5 +19,13 @@ public class LoserActivity extends AppCompatActivity {
 
         scoreLoser = findViewById(R.id.scoreLoser);
         backBtnLoser = findViewById(R.id.backBtnLoser);
+
+
+        //De Loser a Main
+        backBtnLoser.setOnClickListener(
+                (v) ->{
+                    Intent i = new Intent(this,MainActivity.class);
+                    startActivity(i);
+                });
     }
 }
