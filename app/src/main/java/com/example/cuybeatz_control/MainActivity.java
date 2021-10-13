@@ -9,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button connectBtn;
+    private TCPSingleton tcp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         connectBtn = findViewById(R.id.connectBtn);
+        tcp = TCPSingleton.getInstance();
 
 
         //De Main a Control
