@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CUYBEATZ_Control">
         <activity
+            android:name=".ConnectActivity"
+            android:exported="true" />
+        <activity
             android:name=".LoserActivity"
             android:exported="true" />
         <activity
