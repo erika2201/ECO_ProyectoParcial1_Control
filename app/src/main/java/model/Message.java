@@ -2,7 +2,6 @@ package model;
 
 public class Message {
     private String key;
-    private boolean isActive;
 
     public Message(String key) {
         this.key = key;

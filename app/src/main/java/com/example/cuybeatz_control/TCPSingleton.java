@@ -28,6 +28,15 @@ public class TCPSingleton extends Thread {
     private Socket socketcito;
     private BufferedWriter escritorcito;
     private BufferedReader lectorcito;
+
+    //Para patron observer
+    private OnMessageListener observer;
+
+    //Me permite suscribir al observador (la actividad interesada)
+    public void setObserver (OnMessageListener observer){
+        this.observer = observer;
+    }
+
     @Override
     public void run(){
 
@@ -49,6 +58,10 @@ public class TCPSingleton extends Thread {
                 System.out.println("Esperando mensaje....");
                 String line = lectorcito.readLine();
                 System.out.println("Recibido: " + line);
+
+                //Patron observer
+                //Dispara el evento que me interesa según la actividad
+                observer.onMessage(line);
             }
 
         } catch (UnknownHostException e) {
