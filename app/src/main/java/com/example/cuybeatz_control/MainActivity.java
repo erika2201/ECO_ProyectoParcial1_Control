@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.service.controls.Control;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,13 +18,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         connectBtn = findViewById(R.id.connectBtn);
-        tcp = TCPSingleton.getInstance();
 
 
         //De Main a Control
         connectBtn.setOnClickListener(
                 (v) ->{
-                    Intent i = new Intent(this,ConnectActivity.class);
+                    Intent i = new Intent(this, ConnectActivity.class);
                     startActivity(i);
                 });
     }

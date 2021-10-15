@@ -26,7 +26,7 @@ public class ControlActivity extends AppCompatActivity implements OnMessage {
         downBtn = findViewById(R.id.downBtn);
 
         tcp = TCPSingleton.getInstance();
-       // tcp.setObserver(this);
+        tcp.setObserver(this);
 
 
         rightBtn.setOnClickListener(
@@ -37,7 +37,7 @@ public class ControlActivity extends AppCompatActivity implements OnMessage {
                     String json = gson.toJson(obj);
                     tcp.sendMessage(json);
 
-                    Toast.makeText(this, "Derecha", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Derecha", Toast.LENGTH_SHORT).show();
                 });
 
         leftBtn.setOnClickListener(
@@ -48,7 +48,7 @@ public class ControlActivity extends AppCompatActivity implements OnMessage {
                     String json = gson.toJson(obj);
                     tcp.sendMessage(json);
 
-                    Toast.makeText(this, "Izquierda", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Izquierda", Toast.LENGTH_SHORT).show();
                 });
 
         upBtn.setOnClickListener(
@@ -59,7 +59,7 @@ public class ControlActivity extends AppCompatActivity implements OnMessage {
                     String json = gson.toJson(obj);
                     tcp.sendMessage(json);
 
-                    Toast.makeText(this, "Arriba", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Arriba", Toast.LENGTH_SHORT).show();
                 });
 
         downBtn.setOnClickListener(
@@ -70,7 +70,7 @@ public class ControlActivity extends AppCompatActivity implements OnMessage {
                     String json = gson.toJson(obj);
                     tcp.sendMessage(json);
 
-                    Toast.makeText(this, "Abajo", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Abajo", Toast.LENGTH_SHORT).show();
                 });
     }
 

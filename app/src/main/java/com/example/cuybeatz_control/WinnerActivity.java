@@ -11,6 +11,7 @@ public class WinnerActivity extends AppCompatActivity  implements OnMessage{
 
     private TextView scoreWinner;
     private Button backBtnWinner;
+    private TCPSingleton tcp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,10 @@ public class WinnerActivity extends AppCompatActivity  implements OnMessage{
         scoreWinner = findViewById(R.id.scoreWinner);
         backBtnWinner = findViewById(R.id.backBtnWinner);
 
-        //De Loser a Main
+        tcp = TCPSingleton.getInstance();
+        tcp.setObserver(this);
+
+        //De Wiiner a Main
         backBtnWinner.setOnClickListener(
                 (v) ->{
                     Intent i = new Intent(this,MainActivity.class);

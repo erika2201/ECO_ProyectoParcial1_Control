@@ -23,12 +23,17 @@ public class TCPSingleton extends Thread {
         return onlyInstance;
     }
     private TCPSingleton() {}
-
-
     //FIN SINGLETON
+
     private Socket socketcito;
     private BufferedWriter escritorcito;
     private BufferedReader lectorcito;
+    private OnMessage observer;
+
+    public void setObserver (OnMessage observer){
+        this.observer = observer;
+    }
+
 
 
     @Override
@@ -51,6 +56,8 @@ public class TCPSingleton extends Thread {
                 System.out.println("Esperando mensaje....");
                 String line = lectorcito.readLine();
                 System.out.println("Recibido: " + line);
+
+                observer.onMessage(line);
             }
 
         } catch (UnknownHostException e) {

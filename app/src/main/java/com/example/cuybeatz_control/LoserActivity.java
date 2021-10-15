@@ -11,6 +11,7 @@ public class LoserActivity extends AppCompatActivity  implements OnMessage{
 
     private TextView scoreLoser;
     private Button backBtnLoser;
+    private TCPSingleton tcp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,8 @@ public class LoserActivity extends AppCompatActivity  implements OnMessage{
         scoreLoser = findViewById(R.id.scoreLoser);
         backBtnLoser = findViewById(R.id.backBtnLoser);
 
+        tcp = TCPSingleton.getInstance();
+        tcp.setObserver(this);
 
         //De Loser a Main
         backBtnLoser.setOnClickListener(
