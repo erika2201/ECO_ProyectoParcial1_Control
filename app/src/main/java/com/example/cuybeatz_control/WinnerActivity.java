@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class WinnerActivity extends AppCompatActivity {
+public class WinnerActivity extends AppCompatActivity  implements OnMessage{
 
     private TextView scoreWinner;
     private Button backBtnWinner;
@@ -26,5 +26,10 @@ public class WinnerActivity extends AppCompatActivity {
                     Intent i = new Intent(this,MainActivity.class);
                     startActivity(i);
                 });
+    }
+
+    @Override
+    public void onMessage(String msg) {
+
     }
 }

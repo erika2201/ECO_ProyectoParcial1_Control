@@ -3,11 +3,14 @@ package com.example.cuybeatz_control;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Toast;
 
-public class ConnectActivity extends AppCompatActivity implements OnMessageListener {
+import com.google.gson.Gson;
+
+import model.Message;
+
+public class ConnectActivity extends AppCompatActivity implements OnMessage {
 
     private TCPSingleton tcp;
     private ConstraintLayout bg;
@@ -18,7 +21,7 @@ public class ConnectActivity extends AppCompatActivity implements OnMessageListe
         setContentView(R.layout.activity_connect);
 
         tcp = TCPSingleton.getInstance();
-        tcp.setObserver(this);
+       // tcp.setObserver(this);
 
     }
 

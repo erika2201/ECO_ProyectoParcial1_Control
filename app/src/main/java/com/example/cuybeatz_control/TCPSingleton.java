@@ -12,7 +12,7 @@ import java.net.UnknownHostException;
 
 public class TCPSingleton extends Thread {
 
-    //INICIO SINGLETON
+    //SINGLETON
     private static TCPSingleton onlyInstance;
 
     public static TCPSingleton getInstance(){
@@ -23,28 +23,21 @@ public class TCPSingleton extends Thread {
         return onlyInstance;
     }
     private TCPSingleton() {}
-    //FIN SINGLETON
 
+
+    //FIN SINGLETON
     private Socket socketcito;
     private BufferedWriter escritorcito;
     private BufferedReader lectorcito;
 
-    //Para patron observer
-    private OnMessageListener observer;
-
-    //Me permite suscribir al observador (la actividad interesada)
-    public void setObserver (OnMessageListener observer){
-        this.observer = observer;
-    }
 
     @Override
     public void run(){
-
         try {
             //Paso 2: Enviar solicitud de conexion
-            socketcito = new Socket("192.168.1.6",6969);
+            socketcito = new Socket("192.168.0.32",6969);
             //Paso 3: Cliente y server conectados
-            System.out.println("Se ha conectado al juego!!!");
+            System.out.println("Se ha conectado al servidor!!!");
 
             InputStream is = socketcito.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
@@ -58,10 +51,6 @@ public class TCPSingleton extends Thread {
                 System.out.println("Esperando mensaje....");
                 String line = lectorcito.readLine();
                 System.out.println("Recibido: " + line);
-
-                //Patron observer
-                //Dispara el evento que me interesa según la actividad
-                observer.onMessage(line);
             }
 
         } catch (UnknownHostException e) {
@@ -83,6 +72,7 @@ public class TCPSingleton extends Thread {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
-                }).start();
+                }
+        ).start();
     }
 }

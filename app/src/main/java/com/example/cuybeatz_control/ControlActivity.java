@@ -4,20 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.nio.charset.StandardCharsets;
-
 import model.Message;
 
-public class ControlActivity extends AppCompatActivity implements OnMessageListener{
+public class ControlActivity extends AppCompatActivity implements OnMessage {
 
     private Button rightBtn,leftBtn,upBtn,downBtn ;
     private TCPSingleton tcp;
-    private String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +26,8 @@ public class ControlActivity extends AppCompatActivity implements OnMessageListe
         downBtn = findViewById(R.id.downBtn);
 
         tcp = TCPSingleton.getInstance();
-        tcp.setObserver(this);
+       // tcp.setObserver(this);
 
-        key = " ";
 
         rightBtn.setOnClickListener(
                 (v) ->{
@@ -84,8 +79,8 @@ public class ControlActivity extends AppCompatActivity implements OnMessageListe
         runOnUiThread(
                 ()->{
                     //Donde llegan los mensajes, pero puedo hacer que lleguen a un text, u otro tipo de dato
-                    //Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-                    key.concat(msg+"\n");
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+                    //key.concat(msg+"\n");
                 }
         );
     }
