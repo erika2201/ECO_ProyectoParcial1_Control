@@ -40,7 +40,7 @@ public class TCPSingleton extends Thread {
     public void run(){
         try {
             //Paso 2: Enviar solicitud de conexion
-            socketcito = new Socket("192.168.0.32",6969);
+            socketcito = new Socket("192.168.1.16",6969);
             //Paso 3: Cliente y server conectados
             System.out.println("Se ha conectado al servidor!!!");
 

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class LoserActivity extends AppCompatActivity  implements OnMessage{
+public class LoserActivity extends AppCompatActivity  implements OnMessage {
 
     private TextView scoreLoser;
     private Button backBtnLoser;
@@ -26,14 +26,24 @@ public class LoserActivity extends AppCompatActivity  implements OnMessage{
 
         //De Loser a Main
         backBtnLoser.setOnClickListener(
-                (v) ->{
-                    Intent i = new Intent(this,MainActivity.class);
+                (v) -> {
+                    Intent i = new Intent(this, MainActivity.class);
                     startActivity(i);
                 });
     }
 
     @Override
     public void onMessage(String msg) {
+        runOnUiThread(
+                () -> {
 
+                }
+        );
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        scoreLoser.setText("Puntaje:" + getIntent().getExtras().getString("puntaje"));
     }
 }

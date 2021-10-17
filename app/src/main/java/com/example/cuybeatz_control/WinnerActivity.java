@@ -5,9 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class WinnerActivity extends AppCompatActivity  implements OnMessage{
+import com.google.gson.Gson;
+
+import model.Message;
+
+public class WinnerActivity extends AppCompatActivity  implements OnMessage {
 
     private TextView scoreWinner;
     private Button backBtnWinner;
@@ -26,8 +32,8 @@ public class WinnerActivity extends AppCompatActivity  implements OnMessage{
 
         //De Wiiner a Main
         backBtnWinner.setOnClickListener(
-                (v) ->{
-                    Intent i = new Intent(this,MainActivity.class);
+                (v) -> {
+                    Intent i = new Intent(this, MainActivity.class);
                     startActivity(i);
                 });
     }
@@ -35,5 +41,17 @@ public class WinnerActivity extends AppCompatActivity  implements OnMessage{
     @Override
     public void onMessage(String msg) {
 
+
+        runOnUiThread(
+                () -> {
+
+                }
+        );
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+scoreWinner.setText("Puntaje:"+getIntent().getExtras().getString("puntaje"));
     }
 }

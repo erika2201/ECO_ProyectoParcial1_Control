@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         //De Main a Control
         connectBtn.setOnClickListener(
                 (v) ->{
-                    Intent i = new Intent(this, ConnectActivity.class);
+                    Intent i = new Intent(this, ControlActivity.class);
                     startActivity(i);
                 });
     }
